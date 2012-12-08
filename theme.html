@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{Title}</title>
+	<link rel="shortcut icon" href="{Favicon}">
+	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+	<link href='http://fonts.googleapis.com/css?family=Oldenburg' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+	{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<meta charset="UTF-8">
+
+	<style type="text/css">
+		/* http://colorschemedesigner.com/#3R11Tj3pUwtw0 */
+
+		html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+		h1 {
+			font-family: "Oldenburg", "Times New Roman", Georgia, serif;
+			font-size: 50px;
+			color: #ccc;
+			text-shadow: 1px 1px #555, 2px 2px #ccc, 3px 3px #555;
+			letter-spacing: 2px;
+		}
+
+		li, li a {
+			display: inline;
+			font-family: "Oldenburg", "Times New Roman", Georgia, serif;
+			text-decoration: none;
+			text-shadow: 1px 1px #555;
+			font-size: 15px;
+			color: #333;
+		}
+
+		h3, h3 a {
+			font-family: "Oldenburg", "Times New Roman", Georgia, serif;
+			text-decoration: none;
+			color: #f6a01a;
+			text-shadow: 1px 1px #419873;
+			font-size: 22px;
+		}
+
+		#wrapper {
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		#header {
+			display: block;
+		}
+
+		.title {
+			background-color: #43518C;
+			height: 120px;
+			overflow: hidden;
+		}
+
+		.title h1 {
+			margin-left: 20px;
+			margin-top: 10px;
+			line-height: 120px;
+		}
+
+		.nav {
+			background-color: #8D98C6;
+			height: 40px;
+		}
+
+		.nav ul {
+			float: right;
+			margin-right: 10px;
+			line-height: 40px;
+			margin-right: 60px;
+		}
+
+		li.navitem {
+			border-right: 3px dashed #888;
+			padding-left: 5px;
+			padding-right: 8px;
+		}
+
+		li.navitem:last-child {
+			border-right: none;
+		}
+
+		li.navitem a:hover {
+			text-shadow: 2px 2px #eee;
+		}
+
+		.main-column{
+			width: 67%;
+			position: absolute;
+			height: 100%;
+			left: 0;
+			background: #c00;
+		}
+
+		.container-left {
+			width: 500px;
+			margin-left: 50px;
+		}
+
+		.post-header {
+			margin: 30px 0px 10px 0px;
+			padding: 5px;
+			border-top: 2px dashed #333;
+            
+		}
+
+		span.date {
+			font-family: "Open Sans", Arial, sans-serif;
+			font-size: 12px;
+			font-style: italic;
+		}
+
+		p.body {
+			padding: 10px 0px;
+			font-family: "Open Sans", Arial, sans-serif;
+			font-size: 14px;
+			letter-spacing: .1em;
+			line-height: 1.2em;
+		}
+
+		img.body {
+			width: 400px;
+			margin-left: 5px;
+		}
+
+		.caption {
+			padding: 5px;
+			font-family: "Open Sans", Arial, sans-serif;
+			font-size: 14px;
+			letter-spacing: .1em;
+		}
+
+		.side-column {
+			width: 33%;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			background: #404868;
+			float: right;
+		}
+
+		.container-right {
+			margin: 50px 10px 10px 0px;
+		}
+
+		.image {			
+			width: 400px;
+			height: 150px;
+		}
+
+		.portrait {
+			margin-left: 25px;
+			box-shadow: 1px 1px 1px #333, 2px 2px 2px #ccc, 3px 3px 3px 1px #333;
+			float: left;
+		}
+
+		p.description {
+			margin-left: 20px;
+			width: 200px;
+			float: left;
+			font-family: "Oldenburg", "Times New Roman", Georgia, serif;
+			color: #ccc
+		}
+
+		.notecount {
+			font-family: "Open Sans", Arial, sans-serif;
+			font-size: 12px;
+			font-style: italic;
+			padding: 10px 0px;
+		}
+
+
+		{CustomCSS}
+	</style>
+</head>
+
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="title">
+				<h1>{Title}</h1>
+			</div><!-- title -->
+			<div class="nav">
+				<ul>
+					<li class="navitem"><a href="/">Home</a></li>
+					<li class="navitem"><a href="/archive">Archive</a></li>
+					<li class="navitem"><a href="/mobile">Mobile</a></li>
+					<li class="navitem"><a href="{RSS}">RSS</a></li>
+				</ul>
+			</div><!-- nav -->
+		</div><!-- header -->
+
+	<div class="column-wrapper">
+		<div class="main-column">
+			<div class="container-left">
+			{block:Posts}
+				{block:Date}
+				<div class="post-header">
+					<span class="date">{Month} {DayOfMonthWithZero}, {Year}</span>
+				</div><!-- post-header -->
+				<!--{/block:Date}-->
+				<div class="post">
+					{block:Text}
+						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+						<p class="body">{Body}</p>
+					{/block:Text}
+					{block:Photo}
+						<img src="{PhotoURL-400}" alt="{Photoalt}"/>
+						{block:Caption}<div class="caption">{Caption}</div>
+						{/block:Caption}
+					{/block:Photo}
+				</div><!-- post -->
+				{block:NoteCount}
+					<p class="notecount">{NoteCountWithLabel}</p>
+				{/block:NoteCount}
+			</div><!-- container-left -->
+		</div><!-- main-column -->
+
+		<div class="side-column">
+			<div class="container-right">
+				<div class="image">
+					<img class="portrait" src="{PortraitURL-128}" alt="{PortraitURL-128}">
+					<p class="description">{Description}</p>
+				</div>
+				{block:Twitter}
+   				<div id="twitter" style="display:none;">
+        			<h3><a href="http://twitter.com/{TwitterUsername}">Latest Tweets</a></h3>
+        		<div id="tweets"></div>
+    			</div>
+
+   				<script type="text/javascript">
+        		function recent_tweets(data) {
+           		for (i=0; i<data.length; i++) {
+                document.getElementById("tweets").innerHTML =
+                    document.getElementById("tweets").innerHTML +
+                    '<a href="http://twitter.com/{TwitterUsername}/status/' +
+                    (data[i].id_str ? data[i].id_str : data[i].id) +
+                    '"><div class="content">' + data[i].text +
+                    '</div></a>';
+         		}
+            	document.getElementById("twitter").style.display = 'block';
+        		}
+				</script>
+			{/block:Twitter}
+			</div><!-- container-right -->
+		</div><!-- side-column -->
+	</div><!-- column-wrapper -->
+
+
+	</div><!-- wrapper -->
+
+{block:Twitter}
+    <script type="text/javascript" src="/tweets.js"></script>
+{/block:Twitter}
+</body>
+
+
+</html>
