@@ -93,15 +93,19 @@
 
 		.main-column{
 			width: 67%;
-			position: absolute;
+			position: relative;
+			float: left;
 			height: 100%;
 			left: 0;
-			background: #c00;
+			background: #ccccc4;
+			z-index: -1;
 		}
 
 		.container-left {
-			width: 500px;
+			width: 67%;
 			margin-left: 50px;
+			margin-top: 50px;
+			height: 100%;
 		}
 
 		.post-header {
@@ -140,8 +144,6 @@
 		.side-column {
 			width: 33%;
 			height: 100%;
-			position: absolute;
-			right: 0;
 			background: #404868;
 			float: right;
 		}
@@ -166,7 +168,13 @@
 			width: 200px;
 			float: left;
 			font-family: "Oldenburg", "Times New Roman", Georgia, serif;
-			color: #ccc
+			color: #ccc;
+			line-height: 1.2em;
+		}
+
+		.post-footer {
+			padding: 10px;
+			margin: 5px 0px 20px 0px;
 		}
 
 		.notecount {
@@ -176,6 +184,9 @@
 			padding: 10px 0px;
 		}
 
+		.clear {
+			clear: both;
+		}
 
 		{CustomCSS}
 	</style>
@@ -201,26 +212,34 @@
 	<div class="column-wrapper">
 		<div class="main-column">
 			<div class="container-left">
-			{block:Posts}
+			
 				{block:Date}
 				<div class="post-header">
 					<span class="date">{Month} {DayOfMonthWithZero}, {Year}</span>
 				</div><!-- post-header -->
-				<!--{/block:Date}-->
-				<div class="post">
+				{/block:Date}
+				 {block:Posts}
 					{block:Text}
+                    <div class="post-text">
 						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
 						<p class="body">{Body}</p>
+                    </div> <!-- post-text -->
 					{/block:Text}
 					{block:Photo}
+                    <div class="post-photo">
 						<img src="{PhotoURL-400}" alt="{Photoalt}"/>
 						{block:Caption}<div class="caption">{Caption}</div>
 						{/block:Caption}
+                    </div> <!-- post-photo -->
 					{/block:Photo}
-				</div><!-- post -->
+                    <div class='clear'></div>
+                {/block:Posts}
 				{block:NoteCount}
+				<div class="post-footer">
 					<p class="notecount">{NoteCountWithLabel}</p>
+				</div><!-- post-footer -->
 				{/block:NoteCount}
+				<div class="clear"></div>
 			</div><!-- container-left -->
 		</div><!-- main-column -->
 
